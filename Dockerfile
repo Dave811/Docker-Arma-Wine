@@ -19,8 +19,8 @@ RUN apt install -y lib32gcc1
 RUN apt install -y libntlm0
 RUN apt install -y winbind
 RUN apt install -y wine64 --install-recommends
- && apt clean \
- && useradd -d /home/container -m container
+RUN apt clean \
+RUN useradd -d /home/container -m container
 
 USER        container
 ENV         USER=container HOME=/home/container WINEARCH=win64 WINEPREFIX=/home/container/.wine64
