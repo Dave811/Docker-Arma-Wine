@@ -13,7 +13,12 @@ ENV         DEBIAN_FRONTEND noninteractive
 RUN dpkg --add-architecture i386 \
  && apt update \
  && apt upgrade -y \
- && apt install -y ca-certificates xvfb lib32gcc1 libntlm0 winbind wine64 winetricks --install-recommends \
+ && apt install -y ca-certificates
+RUN apt install -y xvfb
+RUN apt install -y lib32gcc1
+RUN apt install -y libntlm0
+RUN apt install -y winbind
+RUN apt install -y wine64 --install-recommends
  && apt clean \
  && useradd -d /home/container -m container
 
