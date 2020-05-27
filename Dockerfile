@@ -23,7 +23,7 @@ RUN apt clean \
 RUN useradd -d /home/container -m container
 
 USER        container
-ENV         USER=container HOME=/home/container WINEARCH=win64 WINEPREFIX=/home/container/.wine64
+ENV         USER=container HOME=/home/container WINEARCH=win32 WINEPREFIX=/home/container/.wine
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
