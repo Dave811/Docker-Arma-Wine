@@ -1,11 +1,11 @@
 # ----------------------------------
-# Holdfast: Nations at War Dockerfile
+# Thanks to Mason Rowe (mason@rowe.sh) for creating the base
 # Environment: Ubuntu:18.04 + Wine + Xvfb
 # Minimum Panel Version: 0.7.9
 # ----------------------------------
 FROM        ubuntu:18.04
 
-LABEL       author="Mason Rowe" maintainer="mason@rowe.sh"
+LABEL       author="David Haßhoff" maintainer="d.hasshoff97@gmail.com"
 
 ENV         DEBIAN_FRONTEND noninteractive
 
