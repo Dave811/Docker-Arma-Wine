@@ -37,5 +37,7 @@ USER        container
 ENV         USER=container HOME=/home/container WINEARCH=win32 WINEPREFIX=/home/container/.wine
 WORKDIR     /home/container
 
+EXPOSE 5920
+
 COPY        ./entrypoint.sh /entrypoint.sh
 CMD         ["/bin/bash", "/entrypoint.sh"]
