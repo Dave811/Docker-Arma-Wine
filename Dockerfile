@@ -1,9 +1,9 @@
 # ----------------------------------
 # Thanks to Mason Rowe (mason@rowe.sh) for creating the base
-# Environment: Ubuntu:18.04 + Wine + Xvfb
+# Environment: Ubuntu:20.04 + Wine + Xvfb
 # Minimum Panel Version: 0.7.9
 # ----------------------------------
-FROM        ubuntu:18.04
+FROM        ubuntu:20.04
 
 LABEL       author="David Haßhoff" maintainer="d.hasshoff97@gmail.com"
 
@@ -13,16 +13,20 @@ ENV         DEBIAN_FRONTEND noninteractive
 RUN dpkg --add-architecture i386
 
 RUN apt-get update
+RUN apt-get install -y apt-utils
+RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install -y apt-utils
 
-RUN apt-get install -y ca-certificates
+RUN apt-get install -y ca-certificates wget gnupg2 software-properties-common
+
+#WINE
+RUN wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add -
+RUN add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+RUN apt-get update
+RUN apt-get install -y --install-recommends winehq-stable
+
 RUN apt-get install -y xvfb
-RUN apt-get install -y lib32gcc1
-RUN apt-get install -y libntlm0
-RUN apt-get install -y winbind
-RUN apt-get install -y --no-install-recommends wine32 # wine64
 
 RUN apt-get clean
 RUN apt-get autoremove -y
