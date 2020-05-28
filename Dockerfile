@@ -18,7 +18,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 
-RUN apt-get install -y ca-certificates wget gnupg2 software-properties-common winbind 
+RUN apt-get install -y ca-certificates wget gnupg2 software-properties-common winbind x11vnc
 
 #WINE
 RUN wget -O - https://dl.winehq.org/wine-builds/winehq.key | apt-key add -
